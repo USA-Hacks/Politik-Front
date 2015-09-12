@@ -1,4 +1,7 @@
 var Politik = window.Politik = window.Politik || {};
+var endpoint = "localhost:8000";
+
 Politik.settings = {
-    endPoint: "localhost:8000"
+    update: endpoint + "/update",
+    post: endpoint + "/post"
 };

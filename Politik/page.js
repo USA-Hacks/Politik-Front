@@ -19,5 +19,9 @@ Politik.page.getContent = function(tab, callback) {
                 callback(text[0]);
             });
         }
+
+        // $.post(Politik.settings.endpoint, {url: tab.url}).then(function(res) {
+        //     callback(res.data);
+        // });
     }
 };
