@@ -4,7 +4,7 @@ var endpoint = "http://104.131.49.99";
 Politik.settings = {
     enabled: true,
     endpoints: {
-        score: endpoint + "/score",
+        score: endpoint + "/calc_score",
         post: endpoint + "/store_view"
     }
 };

@@ -17,14 +17,3 @@ Politik.identity.getId = function(callback) {
 Politik.identity.clear = function(callback) {
     chrome.storage.sync.remove('politikUserId', callback);
 };
-
-Politik.identity.getScore = function(callback) {
-    Politik.identity.getId(function(id) {
-        $.ajax({
-            url: Politik.settings.endpoints.score,
-            type: "POST",
-            data: JSON.stringify({id: id}),
-            contentType: "application/json"})
-        .then(callback);
-    });
-};

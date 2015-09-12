@@ -12,3 +12,14 @@ Politik.page.send = function(tab, callback) {
         }
     });
 };
+
+Politik.page.getScore = function(tab, callback) {
+    Politik.identity.getId(function(id) {
+        $.ajax({
+            url: Politik.settings.endpoints.score,
+            type: "POST",
+            data: JSON.stringify({id: id, url: tab.url}),
+            contentType: "application/json"})
+        .then(callback);
+    });
+};
