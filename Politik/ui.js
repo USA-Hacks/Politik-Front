@@ -6,6 +6,11 @@ Politik.ui.getCandidateCard = function(candidate, callback) {
         '<div class="ui fluid image candidate-image-container">' +
             (candidate.party === 'Democrat' ? '<span class="ui blue ribbon label">Democrat</span>' : '') +
             (candidate.party === 'Republican' ? '<span class="ui red ribbon label">Republican</span>' : '') +
+            (candidate.party === 'Green' ? '<span class="ui green ribbon label">Green</span>' : '') +
+            (candidate.party === 'Independent' ? '<span class="ui ribbon label">Independent</span>' : '') +
+            // candidate.issues.map(function(issue, i) {
+            //     return '<span class="ui teal right ribbon label" style="margin-top: ' + i * 30 + 'px;">' + issue + '</span>'
+            // }).join('\n') +
             '<img class="candidate-image" src="' + candidate.img + '">' +
         '</div>' +
         '<div class="content">' +
