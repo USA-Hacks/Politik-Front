@@ -1,0 +1,154 @@
+<html>
+    <head>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.1/jquery.fullPage.min.css">
+        <link href='https://fonts.googleapis.com/css?family=VT323|Raleway:400,200,700' rel='stylesheet' type='text/css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.1/vendors/jquery.easings.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.1/vendors/jquery.slimscroll.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.1/jquery.fullPage.min.js"></script>
+        <script>
+            $(function() {
+                $('#slide-three-title').hide();
+                $('#slide-three-introducing').hide();
+                $('#slide-three-politik').hide();
+                $('#fullpage').fullpage({
+                    afterLoad: function(anchor, index) {
+                        if (index === 3) {
+                            $('#slide-three-title').fadeIn(2000, function() {
+                                setTimeout(function() {
+                                    $('#slide-three-title').fadeOut(1000, function() {
+                                        $('#slide-three-introducing').fadeIn(1000, function() {
+                                            setTimeout(function() {
+                                                $('#slide-three-introducing').fadeOut(1000, function() {
+                                                    $('#slide-three-politik').fadeIn(function() {
+                                                        setTimeout(function() {
+                                                            $.fn.fullpage.moveSectionDown();
+                                                        }, 2000);
+                                                    });
+                                                });
+                                            }, 2000);
+                                        });
+                                    });
+                                }, 2000);
+                            });
+                        }
+                    }
+                });
+            })
+        </script>
+        <style>
+            .home {
+                background-image: url('/voting.jpg');
+                background-size: auto 100vh;
+                background-attachment: fixed;
+            }
+
+            .home-banner {
+                padding: 3vh 0;
+                text-align: center;
+                background-color: rgba(0, 0, 0, .75);
+
+                color: white;
+                font-family: 'VT323';
+            }
+
+            .slide {
+                font-family: 'Raleway';
+            }
+
+            .slide-banner {
+                top: 0;
+                position: absolute;
+                width: 100vw;
+                text-align: center;
+                color: white;
+            }
+
+            .slide-banner h1 {
+                font-size: 48pt;
+            }
+
+            .animation-slide h1 {
+                font-size: 48pt;
+            }
+
+            #slide-three-politik {
+                font-family: 'VT323';
+                font-size: 128pt;
+            }
+
+            .blue {
+                background-color: #000066;
+            }
+
+            .red {
+                background-color: red;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="fullpage">
+            <div class="section home">
+                <div class="home-banner">
+                    <h1 style="font-size: 72pt;">POLITIK</h1>
+                </div>
+            </div>
+            <div class="section slide">
+                <div class="slide-banner blue">
+                    <h1>Our Mission</h1>
+                </div>
+                <ul class="slide-bullets">
+                    <li>
+                        <h2>Only 60% of Americans vote in Presidential elections</h2>
+                        <ul>
+                            <li>
+                                <h2>40% of people vote in the midterms</h2>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>Many people don't vote because they don't feel strongly about a candidate</h2>
+                    </li>
+                </ul>
+            </div>
+            <div class="section slide animation-slide" style="text-align: center;">
+                <h1 id="slide-three-title">We can do better.</h1>
+                <h1 id="slide-three-introducing">Introducing...</h1>
+                <h1 id="slide-three-politik">POLITIK</h1>
+            </div>
+            <div class="section slide">
+                <div class="slide-banner red">
+                    <h1>What is Politik</h1>
+                </div>
+                <ul class="slide-bullets">
+                    <li>
+                        <h2>It suggests political candidates to apolitical people</h2>
+                    </li>
+                    <li>
+                        <h2>We collect browsing data from the politically-inclined, and compare the data to others</h2>
+                    </li>
+                    <li>
+                        <h2>If we match enough sites, we can show people what candidates they most align with</h2>
+                        <ul>
+                            <li>
+                                <h2>By giving people a candidate they can agree with we can inspire voters</h2>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="section slide">
+                <div class="slide-banner blue">
+                    <h1>How does Politik work</h1>
+                </div>
+                <ul class="slide-bullets">
+                    
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
