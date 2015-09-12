@@ -1,7 +1,17 @@
-body {
+body, html {
     min-width: initial;
+    height: 0;
 }
 
-#like-container {
-    text-align: center;
+.candidate-image {
+    width: 100%;
+}
+
+.candidate-image-container {
+    max-height: 350px;
+    overflow: hidden;
+}
+
+*:focus {
+    outline: 0;
 }
