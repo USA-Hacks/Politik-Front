@@ -2,7 +2,6 @@
     <head>
         <link rel="stylesheet" href="semantic.min.css">
         <link rel="stylesheet" href="popup.css">
-        <link href='https://fonts.googleapis.com/css?family=VT323|Raleway:400,200,700' rel='stylesheet' type='text/css'>
         <script src="jquery.min.js"></script>
         <script src="semantic.min.js"></script>
         <script src="Politik/settings.js"></script>
@@ -15,20 +14,22 @@
         <script src="popup.js"></script>
     </head>
     <body>
-        <div class="container" id="like-container">
+        <div id="like-container">
             <div class="ui buttons">
                 <button class="ui icon button huge basic like-button" id="like-button">
                     <i class="green outline thumbs up icon"></i>
                 </button>
-                <div class="ui vertical divider" style="font-size:8pt;">
-                    OR
-                </div>
                 <button class="ui right icon huge basic button like-button" id="dislike-button">
                     <i class="red outline thumbs down icon"></i>
                 </button>
             </div>
         </div>
-        <div class="container" id="candidate-container">
+        <div id="candidate-container">
+            <div class="ui buttons">
+                <button class="ui basic button" id="candidate-reveal">
+                    See Results
+                </button>
+            </div>
         </div>
     </body>
 </html>
