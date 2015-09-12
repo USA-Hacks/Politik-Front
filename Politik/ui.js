@@ -3,15 +3,21 @@ Politik.ui = {};
 
 Politik.ui.getCandidateCard = function(candidate, callback) {
     callback('<div class="ui card">' +
-        '<div class="image">' +
-            '<img src="' + candidate.img + '">' +
+        '<div class="ui fluid image candidate-image-container">' +
+            (candidate.party === 'Democrat' ? '<span class="ui blue ribbon label">Democrat</span>' : '') +
+            (candidate.party === 'Republican' ? '<span class="ui red ribbon label">Republican</span>' : '') +
+            '<img class="candidate-image" src="' + candidate.img + '">' +
         '</div>' +
         '<div class="content">' +
-            '<a class="header" href="' + candidate.link + '">' + candidate.name + '</a>' +
-            '<div class="meta">' +
-                '<span class="date">' + candidate.party + '</span>' +
-            '</div>' +
+            '<span class="header" href="' + candidate.link + '">' + candidate.name + '</span>' +
             '<div class="description">' + candidate.blurb + '</div>' +
         '</div>' +
+        '<div class="extra content">' +
+            '<a id="candidate-link" href="' + candidate.link + '"><i class="user icon"></i>' + candidate.link + '</a>' +
+        '</div>' +
     '</div>');
+};
+
+Politik.ui.openTab = function(link) {
+    chrome.tabs.create({url: link});
 };

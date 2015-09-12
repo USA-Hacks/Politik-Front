@@ -1,3 +1,12 @@
 body {
     min-width: initial;
 }
+
+.candidate-image {
+    width: 100%;
+}
+
+.candidate-image-container {
+    max-height: 350px;
+    overflow: hidden;
+}

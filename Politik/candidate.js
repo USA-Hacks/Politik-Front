@@ -39,12 +39,12 @@ Politik.candidate.candidates.hildog = {
 };
 
 Politik.candidate.candidates.omally = {
-    name: "Martin O'Mally",
+    name: "Martin O'Malley",
     party: "Democrat",
     score: -0.6,
     link: "https://martinomalley.com/",
-    img: "Martin_OMally.jpg",
-    blurb: "Martin O’Malley has spent his entire career fighting for underserved and middle-class communities. He has served as the Governor of Maryland, Mayor of Baltimore, and a city councilor—earning a reputation as a bold, progressive, and pragmatic executive who is willing to take on our toughest shared challenges."
+    img: "Martin_OMalley.jpg",
+    blurb: "Martin O'Malley has spent his entire career fighting for underserved and middle-class communities. He has served as the Governor of Maryland, Mayor of Baltimore, and a city councilor-earning a reputation as a bold, progressive, and pragmatic executive who is willing to take on our toughest shared challenges."
 };
 
 Politik.candidate.candidates.cruz = {
