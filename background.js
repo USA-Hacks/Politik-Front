@@ -1,3 +1,3 @@
 Politik.location.onNewLocation(function(tab) {
-    Politik.page.send(tab, 1);
+    Politik.page.send(tab);
 });
