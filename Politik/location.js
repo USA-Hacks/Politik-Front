@@ -10,5 +10,7 @@ Politik.location.onNewLocation = function(callback) {
 };
 
 Politik.location.getCurrent = function(callback) {
-    chrome.tabs.getCurrent(callback);
+    chrome.tabs.query({active: true}, function(tabs) {
+        callback(tabs[0]);
+    });
 };

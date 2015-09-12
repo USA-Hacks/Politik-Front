@@ -1,7 +1,7 @@
 var Politik = window.Politik = window.Politik || {};
 Politik.identity = {};
 
-Politik.identity.get = function(callback) {
+Politik.identity.getId = function(callback) {
     chrome.storage.sync.get('politikUserId', function(id) {
         if (!id.politikUserId) {
             id =  Politik.util.uuid();
@@ -16,4 +16,15 @@ Politik.identity.get = function(callback) {
 
 Politik.identity.clear = function(callback) {
     chrome.storage.sync.remove('politikUserId', callback);
+};
+
+Politik.identity.getScore = function(callback) {
+    Politik.identity.getId(function(id) {
+        $.ajax({
+            url: Politik.settings.endpoints.score,
+            type: "POST",
+            data: JSON.stringify({id: id}),
+            contentType: "application/json"})
+        .then(callback);
+    });
 };

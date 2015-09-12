@@ -10,4 +10,20 @@ $(function() {
             });
         });
     });
+
+    $('#like-button').click(function() {
+        Politik.location.getCurrent(function(tab) {
+            Politik.page.send(tab, 1, function() {
+                console.log(tab.url + " liked!");
+            });
+        });
+    });
+
+    $('#dislike-button').click(function() {
+        Politik.location.getCurrent(function(tab) {
+            Politik.page.send(tab, 0, function() {
+                console.log(tab.url + "disliked!");
+            });
+        })
+    })
 });
