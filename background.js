@@ -1,3 +1,5 @@
 Politik.location.onNewLocation(function(tab) {
-    console.log(tab.url);
+    Politik.page.getContent(tab, function(content) {
+        console.log(content);
+    });
 });
