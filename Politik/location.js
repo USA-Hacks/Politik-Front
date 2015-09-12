@@ -8,3 +8,7 @@ Politik.location.onNewLocation = function(callback) {
         }
     })
 };
+
+Politik.location.getCurrent = function(callback) {
+    chrome.tabs.getCurrent(callback);
+};
