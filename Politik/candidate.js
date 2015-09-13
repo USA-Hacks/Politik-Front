@@ -10,14 +10,6 @@ Politik.candidate.getCandidate = function(score, keywords, callback) {
 
         var diff = Math.abs(candidate.score - score);
 
-        diff += keywords.filter(function(word) {
-            return candidate.issues[word] !== undefined;
-        }).map(function(word) {
-            return score * -.1 * candidate.issues[word];
-        }).reduce(function(prev, next) {
-            return prev + next;
-        }, 0);
-
         if (diff < closestDiff) {
             closestDiff = diff;
             closestCandidate = candidate;
@@ -46,7 +38,7 @@ Politik.candidate.candidates.bernie = {
 Politik.candidate.candidates.hildog = {
     name: "Hillary Clinton",
     party: "Democrat",
-    score: -0.5,
+    score: -0.3,
     link: "https://www.hillaryclinton.com/",
     img: "img/Hillary_Clinton.jpg",
     blurb: "Hillary Diane Rodham Clinton is an American politician who served as the 67th United States Secretary of State under President Barack Obama from 2009 to 2013.",
@@ -89,7 +81,7 @@ Politik.candidate.candidates.cruz = {
 Politik.candidate.candidates.trump = {
     name: "Donald Trump",
     party: "Republican",
-    score: 0.3,
+    score: 0.4,
     link: "https://www.donaldjtrump.com/",
     img: "img/Donald_Trump.jpg",
     blurb: "Donald John Trump (born June 14, 1946) is an American real estate developer, television personality, business author and political candidate. He is the chairman and president of The Trump Organization and is the founder of Trump Entertainment Resorts.",

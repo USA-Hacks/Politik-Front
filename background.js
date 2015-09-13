@@ -3,7 +3,6 @@ var precachedPages = {};
 Politik.location.onNewLocation(function(tab) {
     Politik.page.send(tab.url);
     Politik.page.getScore(tab.url, function(score) {
-        console.log(score);
         Politik.candidate.getCandidate(score.ascore, score.keywords, function(candidate) {
             Politik.ui.getCandidateCard(candidate, function(card) {
                 precachedPages[tab.url] = card;
