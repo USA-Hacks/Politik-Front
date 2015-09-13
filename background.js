@@ -2,16 +2,14 @@ var precachedPages = {};
 
 Politik.location.onNewLocation(function(tab) {
     Politik.page.send(tab.url);
-    if (Object.keys(precachedPages).length < 20) {
-        Politik.page.getScore(tab.url, function(score) {
-            console.log(score);
-            Politik.candidate.getCandidate(score.ascore, score.keywords, function(candidate) {
-                Politik.ui.getCandidateCard(candidate, function(card) {
-                    precachedPages[tab.url] = card;
-                });
+    Politik.page.getScore(tab.url, function(score) {
+        console.log(score);
+        Politik.candidate.getCandidate(score.ascore, score.keywords, function(candidate) {
+            Politik.ui.getCandidateCard(candidate, function(card) {
+                precachedPages[tab.url] = card;
             });
         });
-    }
+    });
 });
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
