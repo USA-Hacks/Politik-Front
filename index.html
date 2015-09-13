@@ -9,6 +9,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.1/vendors/jquery.easings.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.1/vendors/jquery.slimscroll.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.1/jquery.fullPage.min.js"></script>
+        <script src="Chart.js"></script>
+
         <script>
             $(function() {
                 $('#slide-three-title').hide();
@@ -17,7 +19,7 @@
                 $('#fullpage').fullpage({
                     afterLoad: function(anchor, index) {
                         if (index === 3) {
-                            $('#slide-three-title').fadeIn(2000, function() {
+                            $('#slide-three-title').fadeIn(1000, function() {
                                 setTimeout(function() {
                                     $('#slide-three-title').fadeOut(1000, function() {
                                         $('#slide-three-introducing').fadeIn(1000, function() {
@@ -26,18 +28,18 @@
                                                     $('#slide-three-politik').fadeIn(function() {
                                                         setTimeout(function() {
                                                             $.fn.fullpage.moveSectionDown();
-                                                        }, 2000);
+                                                        }, 1000);
                                                     });
                                                 });
-                                            }, 2000);
+                                            }, 1000);
                                         });
                                     });
-                                }, 2000);
+                                }, 1000);
                             });
                         }
                     }
                 });
-            })
+            });
         </script>
         <style>
             .home {
@@ -57,6 +59,7 @@
 
             .slide {
                 font-family: 'Raleway';
+                text-align: center;
             }
 
             .slide-banner {
@@ -97,20 +100,9 @@
                     <h1 style="font-size: 72pt;">POLITIK</h1>
                 </div>
             </div>
-            <div class="section slide">
-                <div class="slide-banner blue">
-                    <h1>Our Mission</h1>
-                </div>
-                <ul class="slide-bullets">
-                    <li>
-                        <h2>Only ~55% of VAP Vote</h2>
-                        <ul>
-                            <li>
-                                <h2>Our target is the other 45% of the VAP</h2>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+            <div class="section slide animation-slide" style="text-align: center;">
+                <h1 id="slide-two-title">We want you to vote!</h1>
+                <canvas id="doughnutChart" width="400" height="400"></canvas>
             </div>
             <div class="section slide animation-slide" style="text-align: center;">
                 <h1 id="slide-three-title">We can do better.</h1>
@@ -118,29 +110,127 @@
                 <h1 id="slide-three-politik">POLITIK</h1>
             </div>
             <div class="section slide">
-                <div class="slide-banner red">
-                    <h1>What Is Politik?</h1>
-                </div>
-                <ul class="slide-bullets">
-                    <li>
-                        <h2>Politik is an intelligent platform, meant to recommend candidates in the upcoming election to apolitical people</h2>
-                    </li>
-                    <li>
-                        <h2>We collect browsing data from the politically-inclined, and utilize that data to suggest to "fringe" users what they might be interested in politically.</h2>
-                    </li>
-                    <li>
-                        <h2>It's <b>everyones</b> civic duty to <b>vote</b>, we just wanna help!</h2>
-                    </li>
-                </ul>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h1>A Chrome Extension</h1><hr />
+                        <h3>Politik works in the background, using 100% anonymous data collected from users, to determine candidates in the 2016 election that represent the majority of viewers of a web page</h3><br />
+
+                        <h3>Politik is meant to help apolitical people find interest in politics by relating them to their peers, using web articles as the medium of interaction</h3>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="Capture.png" style="box-shadow: 5px 5px 2px #888888;">
+                    </div>
+                </div> 
             </div>
             <div class="section slide">
-                <div class="slide-banner blue">
-                    <h1>How does Politik work</h1>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h3>Politik has two user groups, "core" users and "fringe" users.</h3><hr/>
+                            <h4>"Core" users influence the political diaspora of fringe websites</h4><br/>
+                            <h4>"Fringe" users content is displayed based off the leaning of a webpages viewers</h4>
+                        </div>
+                        <div class="col-lg-4">
+                            <canvas id="radarChart" width="400" height="400"></canvas>
+                        </div>
+                        <div class="col-lg-4">
+                            <h3>Efficient - Front to Back</h3><hr/>
+                            <h4>Usability drives Politik's minimalist interface</h4><br />
+                            <h4>Machine Learning &amp; NLP power our content decision engine</h4>
+                        </div>
+                    </div>
                 </div>
-                <ul class="slide-bullets">
-                    
-                </ul>
-            </div>
         </div>
+
+        <script>
+            $(function() {
+                var options = 
+                {
+                    tooltipTemplate: "<%= label %>",
+
+                    onAnimationComplete: function()
+                    {
+                        this.showTooltip(this.segments, true);
+                    },
+
+                    tooltipEvents: [],
+
+                    showTooltips: true
+                };
+
+                var data = [
+                    {
+                        value: 25,
+                        color:"#F7464A",
+                        highlight: "#FF5A5E",
+                        label: "Republican"
+                    },
+                    {
+                        value: 27,
+                        color: "#46BFBD",
+                        highlight: "#5AD3D1",
+                        label: "Democrat"
+                    },
+                    {
+                        value: 46,
+                        color: "#4f4f4f",
+                        highlight: "#3d3d3d",
+                        label: "No Vote"
+                    },
+                    {
+                        value: 2,
+                        color: "#FDB45C",
+                        highlight: "#FFC870",
+                        label: "Other"
+                    }
+                ];
+
+                var myDoughnutChart = new Chart($("#doughnutChart").get(0).getContext("2d")).Pie(data, options)
+            });
+
+            $(function() {
+                var options = 
+                {
+                    tooltipTemplate: "<%= label %>",
+
+                    onAnimationComplete: function()
+                    {
+                        this.showTooltip(this.segments, true);
+                    },
+
+                    tooltipEvents: [],
+
+                    showTooltips: true
+                };
+
+                var data = {
+                    labels: ["", "", "", "", "", "", ""],
+                    datasets: [
+                        {
+                            label: "My First dataset",
+                            fillColor: "rgba(50,50,220,0.2)",
+                            strokeColor: "rgba(220,220,220,1)",
+                            pointColor: "rgba(220,220,220,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(220,220,220,1)",
+                            data: [9, 12, 8, 13, 4, 15, 11]
+                        },
+                        {
+                            label: "My Second dataset",
+                            fillColor: "rgba(151,187,205,0.2)",
+                            strokeColor: "rgba(151,187,205,1)",
+                            pointColor: "rgba(151,187,205,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(151,187,205,1)",
+                            data: [30, 30, 30, 30, 30, 30, 30]
+                        }
+                    ]
+                };
+
+                var myRadarChart = new Chart($("#radarChart").get(0).getContext("2d")).Radar(data, options);
+            });
+        </script>
     </body>
 </html>
