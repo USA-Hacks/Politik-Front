@@ -17,7 +17,6 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.getPage) {
         var page = precachedPages[request.getPage];
         sendResponse({page: page});
-        delete precachedPages[request.getPage];
     } else {
         Politik.page.getScore(request.getPage, function(score) {
             Politik.candidate.getCandidate(score.ascore, function(candidate) {
