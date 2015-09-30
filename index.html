@@ -14,31 +14,31 @@
 
         <script>
             $(function() {
-                $('#slide-three-title').hide();
-                $('#slide-three-introducing').hide();
-                $('#slide-three-politik').hide();
+                // $('#slide-three-title').hide();
+                // $('#slide-three-introducing').hide();
+                // $('#slide-three-politik').hide();
                 $('#fullpage').fullpage({
-                    afterLoad: function(anchor, index) {
-                        if (index === 3) {
-                            $('#slide-three-title').fadeIn(550, function() {
-                                setTimeout(function() {
-                                    $('#slide-three-title').fadeOut(750, function() {
-                                        $('#slide-three-introducing').fadeIn(550, function() {
-                                            setTimeout(function() {
-                                                $('#slide-three-introducing').fadeOut(750, function() {
-                                                    $('#slide-three-politik').fadeIn(function() {
-                                                        setTimeout(function() {
-                                                            $.fn.fullpage.moveSectionDown();
-                                                        }, 1000);
-                                                    });
-                                                });
-                                            }, 750);
-                                        });
-                                    });
-                                }, 750);
-                            });
-                        }
-                    }
+                    // afterLoad: function(anchor, index) {
+                    //     if (index === 3) {
+                    //         $('#slide-three-title').fadeIn(550, function() {
+                    //             setTimeout(function() {
+                    //                 $('#slide-three-title').fadeOut(750, function() {
+                    //                     $('#slide-three-introducing').fadeIn(550, function() {
+                    //                         setTimeout(function() {
+                    //                             $('#slide-three-introducing').fadeOut(750, function() {
+                    //                                 $('#slide-three-politik').fadeIn(function() {
+                    //                                     setTimeout(function() {
+                    //                                         $.fn.fullpage.moveSectionDown();
+                    //                                     }, 1000);
+                    //                                 });
+                    //                             });
+                    //                         }, 750);
+                    //                     });
+                    //                 });
+                    //             }, 750);
+                    //         });
+                    //     }
+                    // }
                 });
             });
         </script>
